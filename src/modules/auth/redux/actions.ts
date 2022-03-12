@@ -16,7 +16,7 @@ export const setLogin = (username: string, password: string) => {
   return async (dispatch: Dispatch<SetLoginDispatch | SetLoadingDispatch>) => {
     dispatch({type: types.SetLoading, isLoading: true})
     try {
-      const res = await axios.post('http://nukumalik-profile-api.herokuapp.com/api/v1/auth/login', {
+      const res = await axios.post('/auth/login', {
         username,
         password,
       })
@@ -28,4 +28,8 @@ export const setLogin = (username: string, password: string) => {
       dispatch({type: types.SetLoading, isLoading: false})
     }
   }
+}
+
+export const setLogout = () => (dispatch: Dispatch<{type: string}>) => {
+  dispatch({type: types.SetLogout})
 }

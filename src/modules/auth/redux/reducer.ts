@@ -25,6 +25,9 @@ export const AuthReducer = (state: IAuthState = initialState, action: Action) =>
     case types.SetLoading: {
       return {...state, isLoading}
     }
+    case types.SetLogout: {
+      return {...state, token: ''}
+    }
     default:
       return state
   }

@@ -1,6 +1,6 @@
 import {Provider} from 'react-redux'
 import {PersistGate} from 'redux-persist/integration/react'
-import MainRoutes from './routes/MainRoutes'
+import MainRoutes from './routes'
 import {persistor, store} from './setup/redux'
 
 function App() {

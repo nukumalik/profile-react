@@ -1,16 +1,13 @@
 import {useFormik} from 'formik'
-import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import * as Yup from 'yup'
 import {setLogin} from '../redux/actions'
-import {useHistory} from 'react-router-dom'
 import {RootReducer} from '../../../setup/redux'
 
 const LoginPage = () => {
   // Variables
   const dispatch = useDispatch()
-  const history = useHistory()
-  const {isLoading, token} = useSelector((state: RootReducer) => state.Auth)
+  const {isLoading} = useSelector((state: RootReducer) => state.Auth)
   const formik = useFormik({
     initialValues: {
       username: '',
@@ -24,11 +21,6 @@ const LoginPage = () => {
       dispatch(setLogin(values.username, values.password))
     },
   })
-
-  // Hooks
-  useEffect(() => {
-    if (token) history.push('/')
-  }, [token])
 
   return (
     <div className="bg-light min-vh-100 min-vw-100 d-flex align-items-center justify-content-center">

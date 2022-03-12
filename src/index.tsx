@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom'
 import './styles/global.scss'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+import {setupAxios} from './setup/axios'
+import axios from 'axios'
+import {store} from './setup/redux'
+
+setupAxios(axios, store)
 
 ReactDOM.render(
   <React.StrictMode>
