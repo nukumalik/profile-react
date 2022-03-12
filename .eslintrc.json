@@ -3,27 +3,27 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["plugin:react/recommended", "airbnb"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
-      "jsx": true,
-      "tsx": true
+      "jsx": true
     },
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
-    "react/jsx-filename-extension": [1, {"extensions": [".ts", ".tsx", ".js", ".jsx"]}],
+    "indent": ["error", 2],
+    // "indent": ["error", 2, {"SwitchCase": 1}],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
     "semi": ["error", "never"],
-    "object-curly-spacing": ["error", "never"],
-    "object-curly-newline": ["error", "never"],
-    "comma-dangle": ["error", "never"],
-    "import/extensions": ["error", "never", {"css": "always", "scss": "always", "svg": "always"}],
-    "import/no-unresolved": ["off"],
-    "import/prefer-default-export": ["off", "never"],
-    "react/react-in-jsx-scope": ["off"]
-  },
-  "ignorePatterns": ["*.test.ts"]
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-explicit-any": "off"
+  }
 }
