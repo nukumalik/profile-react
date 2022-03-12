@@ -1,1 +1,52 @@
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+.card {
+  border-radius: calc(1rem - 1px);
+  overflow: hidden;
+}
+
+.btn,
+.form-control {
+  border-radius: 0.4rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.card-header,
+.btn {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.btn {
+  padding-block: 0.7rem;
+  font-weight: bold;
+}
+
+p,
+span,
+small,
+strong,
+div,
+label,
+.form-control {
+  font-family: 'Open Sans', sans-serif !important;
+
+  &:focus {
+    box-shadow: none;
+    border-color: #86b7fe;
+    caret-color: #86b7fe;
+  }
+}
+
+.form-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.form-text.text-danger {
+  font-size: 0.7rem;
+}

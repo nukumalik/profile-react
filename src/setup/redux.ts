@@ -5,12 +5,16 @@ import storage from 'redux-persist/es/storage'
 import {persistStore, persistReducer} from 'redux-persist'
 
 // Reducers
-import {AuthReducer} from '../modules/auth/redux/reducer'
+import {AuthReducer, IAuthState} from '../modules/auth/redux/reducer'
 
 // Persist
 const persistConfig = {
   key: 'root',
   storage,
+}
+
+export interface RootReducer {
+  Auth: IAuthState
 }
 
 const reducers = persistReducer(

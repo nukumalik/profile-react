@@ -1,12 +1,12 @@
 /* eslint-disable indent */
 import * as types from './types'
 
-interface InitialState {
+export interface IAuthState {
   isLoading: boolean
   token?: string
 }
 
-interface Action extends InitialState {
+interface Action extends IAuthState {
   type: string
 }
 
@@ -15,7 +15,7 @@ const initialState = {
   token: '',
 }
 
-export const AuthReducer = (state: InitialState = initialState, action: Action) => {
+export const AuthReducer = (state: IAuthState = initialState, action: Action) => {
   const {isLoading, token, type} = action
 
   switch (type) {

@@ -4,12 +4,13 @@ import {useDispatch, useSelector} from 'react-redux'
 import * as Yup from 'yup'
 import {setLogin} from '../redux/actions'
 import {useHistory} from 'react-router-dom'
+import {RootReducer} from '../../../setup/redux'
 
 const LoginPage = () => {
   // Variables
   const dispatch = useDispatch()
   const history = useHistory()
-  const {isLoading, token} = useSelector((state: any) => state.Auth)
+  const {isLoading, token} = useSelector((state: RootReducer) => state.Auth)
   const formik = useFormik({
     initialValues: {
       username: '',
@@ -31,9 +32,9 @@ const LoginPage = () => {
 
   return (
     <div className="bg-light min-vh-100 min-vw-100 d-flex align-items-center justify-content-center">
-      <div className="card border-0 shadow">
-        <div className="card-header bg-primary text-center py-4">
-          <span className="fw-bold fs-3 text-white">Login Form</span>
+      <div className="card border-0 shadow" style={{minWidth: 300}}>
+        <div className="card-header bg-primary text-center py-4 fw-bold fs-3 text-white">
+          Login Form
         </div>
         <div className="card-body p-4">
           <form onSubmit={formik.handleSubmit} noValidate data-testid="loginForm">
@@ -47,6 +48,9 @@ const LoginPage = () => {
                 tabIndex={1}
                 required
               />
+              {formik.errors.username && formik.touched.username && (
+                <span className="form-text text-danger">{formik.errors.username}</span>
+              )}
             </div>
             <div className="mb-4">
               <label className="form-label">Password</label>
@@ -58,6 +62,9 @@ const LoginPage = () => {
                 tabIndex={2}
                 required
               />
+              {formik.errors.password && formik.touched.password && (
+                <span className="form-text text-danger">{formik.errors.password}</span>
+              )}
             </div>
             <button
               type="submit"
